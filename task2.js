@@ -27,7 +27,7 @@ function randomPicker(...args) {
 // 4. logBook - anonymous function to print formatted info
 
 let logBook = function (book) {
-    console.log(`Book ${book.title} by ${book.author} [${book.category}]`);
+    console.log(`Book ${book.title} by ${book.author} [${book.category}]`);// template literal
 };
 
 // 5. counter() with nested function generator for IDs
@@ -52,7 +52,7 @@ function libraryStats() {
 
     function printStats() {
         console.log(`Total Books: ${total}`);
-        console.log(`Categories: ${[...categories].join(", ")}`);
+        console.log(`Categories: ${[...categories].join(", ")}`);// spread
     }
 
     printStats();
@@ -75,7 +75,7 @@ function filterByCategory(category) {
 }
 
 // 12. countBooksByAuthor() using reduce
-// object withe author name and book count 
+// object with author name and book count 
 function countBooksByAuthor() {
     return library.reduce((acc, b) => {
         acc[b.author] = (acc[b.author] || 0) + 1;
@@ -108,7 +108,7 @@ function notationDemo(book) {
 
 // 17. Constructor function Book()  => new...
 
-function Book(title, author, category = "General", year = 2020) {
+function Book(title, author, category = "General", year = new Date().getFullYear()) {
     this.id = generateID();
     this.title = title;
     this.author = author;
@@ -149,11 +149,26 @@ addBooks(b1, b2, b3, b5, b6);
 
 // Display final outputs
 
-console.log("All Titles:", getTitles());
-console.log("Category: Programming", filterByCategory("Programming"));
-console.log("Books older than 10 years: ", oldBooks());
-console.log("Search 'js':", searchBooks("js"));
-console.log("Books by author count: ", countBooksByAuthor());
+console.log("Task 10 — All Titles:");
+console.log(getTitles());
+
+console.log("\nTask 11 — Programming Category Books:");
+console.log(filterByCategory("Programming"));
+
+console.log("\nTask 9 — Books older than 10 years:");
+console.log(oldBooks());
+
+console.log("\nTask 14 — Search for 'js':");
+console.log(searchBooks("js"));
+
+console.log("\nTask 12 — Books by Author Count:");
+console.log(countBooksByAuthor());
+
+console.log("\nTask 16 — Notation Demo (Dot vs Bracket):");
 notationDemo(b1);
+
+console.log("\nTask 8 — Library Stats:");
 libraryStats();
+
+console.log("\nTask 13 — Print All Books:");
 printAllBooks();
